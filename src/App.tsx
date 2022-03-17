@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import ControlPanel from "./pages/ControlPanel"
 
 function App() {
 
   return (
-    <div>
-    </div>
+    <ControlPanel />
   )
 }
 
