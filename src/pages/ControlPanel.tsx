@@ -6,15 +6,10 @@ import Summary from "./Summary";
 function ControlPanel() {
   const [summary, setSummary] = useState (0)
 
-  const changeSummary = (prevValue: number, value: number) => {
-    const changeValue = value - prevValue;
-    setSummary(summary + changeValue)
-  }
-
   return <div>
-    <Counter changeSummary={changeSummary}/>
-    <Counter changeSummary={changeSummary}/>
-    <Counter changeSummary={changeSummary}/>
+    <Counter counterCaption={'First'} />
+    <Counter counterCaption={'Second'}/>
+    <Counter counterCaption={'Third'}/>
     <hr />
     <Summary summary={summary}/>
   </div>;
