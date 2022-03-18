@@ -1,22 +1,14 @@
-
-import { useCallback, useState } from "react";
 import Counter from "./Counter";
 import Summary from "./Summary";
 
 function ControlPanel() {
-  const [summary, setSummary] = useState (0)
-
-  const changeSummary = (prevValue: number, value: number) => {
-    const changeValue = value - prevValue;
-    setSummary(summary + changeValue)
-  }
 
   return <div>
-    <Counter changeSummary={changeSummary}/>
-    <Counter changeSummary={changeSummary}/>
-    <Counter changeSummary={changeSummary}/>
+    <Counter name={'First'}/>
+    <Counter name={'Second'}/>
+    <Counter name={'Third'}/>
     <hr />
-    <Summary summary={summary}/>
+    <Summary/>
   </div>;
 }
 

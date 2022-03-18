@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import store from '../store'
+import { decrement, increment } from "../store/actions";
 
 interface CounterProps {
-  changeSummary: (prevValue: number, value: number) => void
+  name: string;
 }
  
-const Counter: React.FC<CounterProps> = ({changeSummary}) => {
-  const [count, setCount] = useState(0);
+const Counter: React.FC<CounterProps> = ({ name }) => {
+
+  const [count, setCount] = useState(store.getState()[name])
 
   const style = {
     width: 100,
@@ -14,16 +17,17 @@ const Counter: React.FC<CounterProps> = ({changeSummary}) => {
     margin: '10px 0'
   }
 
-  const calculate = (flag: 'increment' | 'decrement') => {
-    const newCount = flag === 'increment' ? count + 1 : count - 1;
-    setCount(newCount);
-    changeSummary(count, newCount)
-  }
+  const eventListener = () => setCount(store.getState()[name])
+
+  useEffect(() => {
+    const unSubscribe = store.subscribe(eventListener)
+    return () => unSubscribe()
+  }, [])
 
   return <div style={style}>
-    <button onClick={() => calculate('decrement')}>-</button>
+    <button onClick={() => store.dispatch(decrement(name))}>-</button>
     <span>{ count }</span>
-    <button onClick={() => calculate('increment')}>+</button>
+    <button onClick={() => store.dispatch(increment(name))}>+</button>
   </div>;
 }
  
