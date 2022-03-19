@@ -1,9 +1,12 @@
+import StoreProvider from "./store"
 import ControlPanel from "./pages/ControlPanel"
 
 function App() {
 
   return (
-    <ControlPanel />
+    <StoreProvider>
+      <ControlPanel />
+    </StoreProvider>
   )
 }
 

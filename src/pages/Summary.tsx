@@ -1,6 +1,6 @@
 
-import { useEffect, useState } from "react";
-import store from "../store";
+import { useEffect, useState, useContext } from "react";
+import { MainContext } from "../store";
 
 const computed = (values: any) => {
   let summary = 0;
@@ -13,6 +13,7 @@ const computed = (values: any) => {
 }
 
 const Summary: React.FC = () => {
+  const store = useContext(MainContext)
   const [summary, setSummary] = useState(computed(store.getState()));
 
   const eventListener = () => {

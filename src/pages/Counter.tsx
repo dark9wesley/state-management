@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import store from '../store'
+import React, { useContext, useEffect, useState } from "react";
+import { MainContext } from "../store";
 import { decrement, increment } from "../store/actions";
 
 interface CounterProps {
@@ -7,7 +7,7 @@ interface CounterProps {
 }
  
 const Counter: React.FC<CounterProps> = ({ name }) => {
-
+  const store = useContext(MainContext)
   const [count, setCount] = useState(store.getState()[name])
 
   const style = {
