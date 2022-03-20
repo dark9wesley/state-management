@@ -210,7 +210,7 @@
     "@babel/plugin-syntax-jsx" "^7.16.7"
     "@babel/types" "^7.17.0"
 
-"@babel/runtime@^7.9.2":
+"@babel/runtime@^7.15.4", "@babel/runtime@^7.9.2":
   "integrity" "sha512-L6rvG9GDxaLgFjg41K+5Yv9OMrU98sWe+Ykmc6FDJW/+vYZMhdOMKkISgzptMaERHvS2Y2lw9MDRm2gHhlQQoA=="
   "resolved" "https://mirrors.tencent.com/npm/@babel%2fruntime/-/runtime-7.17.7.tgz"
   "version" "7.17.7"
@@ -276,6 +276,14 @@
     "estree-walker" "^2.0.1"
     "picomatch" "^2.2.2"
 
+"@types/hoist-non-react-statics@^3.3.0":
+  "integrity" "sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA=="
+  "resolved" "https://mirrors.tencent.com/npm/@types%2fhoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz"
+  "version" "3.3.1"
+  dependencies:
+    "@types/react" "*"
+    "hoist-non-react-statics" "^3.3.0"
+
 "@types/prop-types@*":
   "integrity" "sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ=="
   "resolved" "https://mirrors.tencent.com/npm/@types%2fprop-types/-/prop-types-15.7.4.tgz"
@@ -287,6 +295,16 @@
   "version" "17.0.13"
   dependencies:
     "@types/react" "*"
+
+"@types/react-redux@^7.1.20":
+  "integrity" "sha512-D02o3FPfqQlfu2WeEYwh3x2otYd2Dk1o8wAfsA0B1C2AJEFxE663Ozu7JzuWbznGgW248NaOF6wsqCGNq9d3qw=="
+  "resolved" "https://mirrors.tencent.com/npm/@types%2freact-redux/-/react-redux-7.1.23.tgz"
+  "version" "7.1.23"
+  dependencies:
+    "@types/hoist-non-react-statics" "^3.3.0"
+    "@types/react" "*"
+    "hoist-non-react-statics" "^3.3.0"
+    "redux" "^4.0.0"
 
 "@types/react@*", "@types/react@^17.0.33":
   "integrity" "sha512-UrXhD/JyLH+W70nNSufXqMZNuUD2cXHu6UjCllC6pmOQgBX4SGXOH8fjRka0O0Ee0HrFxapDD8Bwn81Kmiz6jQ=="
@@ -507,6 +525,13 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+"hoist-non-react-statics@^3.3.0", "hoist-non-react-statics@^3.3.2":
+  "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
+  "resolved" "https://mirrors.tencent.com/npm/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+  "version" "3.3.2"
+  dependencies:
+    "react-is" "^16.7.0"
+
 "is-core-module@^2.8.1":
   "integrity" "sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA=="
   "resolved" "https://mirrors.tencent.com/npm/is-core-module/-/is-core-module-2.8.1.tgz"
@@ -531,7 +556,7 @@
   dependencies:
     "minimist" "^1.2.5"
 
-"loose-envify@^1.0.0", "loose-envify@^1.1.0":
+"loose-envify@^1.0.0", "loose-envify@^1.1.0", "loose-envify@^1.4.0":
   "integrity" "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q=="
   "resolved" "https://mirrors.tencent.com/npm/loose-envify/-/loose-envify-1.4.0.tgz"
   "version" "1.4.0"
@@ -601,6 +626,15 @@
   dependencies:
     "asap" "~2.0.3"
 
+"prop-types@^15.7.2":
+  "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
+  "resolved" "https://mirrors.tencent.com/npm/prop-types/-/prop-types-15.8.1.tgz"
+  "version" "15.8.1"
+  dependencies:
+    "loose-envify" "^1.4.0"
+    "object-assign" "^4.1.1"
+    "react-is" "^16.13.1"
+
 "react-dom@^17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://mirrors.tencent.com/npm/react-dom/-/react-dom-17.0.2.tgz"
@@ -610,12 +644,39 @@
     "object-assign" "^4.1.1"
     "scheduler" "^0.20.2"
 
+"react-is@^16.13.1":
+  "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
+  "resolved" "https://mirrors.tencent.com/npm/react-is/-/react-is-16.13.1.tgz"
+  "version" "16.13.1"
+
+"react-is@^16.7.0":
+  "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
+  "resolved" "https://mirrors.tencent.com/npm/react-is/-/react-is-16.13.1.tgz"
+  "version" "16.13.1"
+
+"react-is@^17.0.2":
+  "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
+  "resolved" "https://mirrors.tencent.com/npm/react-is/-/react-is-17.0.2.tgz"
+  "version" "17.0.2"
+
+"react-redux@^7.2.6":
+  "integrity" "sha512-10RPdsz0UUrRL1NZE0ejTkucnclYSgXp5q+tB5SWx2qeG2ZJQJyymgAhwKy73yiL/13btfB6fPr+rgbMAaZIAQ=="
+  "resolved" "https://mirrors.tencent.com/npm/react-redux/-/react-redux-7.2.6.tgz"
+  "version" "7.2.6"
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    "@types/react-redux" "^7.1.20"
+    "hoist-non-react-statics" "^3.3.2"
+    "loose-envify" "^1.4.0"
+    "prop-types" "^15.7.2"
+    "react-is" "^17.0.2"
+
 "react-refresh@^0.11.0":
   "integrity" "sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A=="
   "resolved" "https://mirrors.tencent.com/npm/react-refresh/-/react-refresh-0.11.0.tgz"
   "version" "0.11.0"
 
-"react@^15.0.2 || ^16.0.0 || ^17.0.0", "react@^17.0.2", "react@17.0.2":
+"react@^15.0.2 || ^16.0.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.2", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://mirrors.tencent.com/npm/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -623,7 +684,7 @@
     "loose-envify" "^1.1.0"
     "object-assign" "^4.1.1"
 
-"redux@^4.1.2":
+"redux@^4.0.0", "redux@^4.1.2":
   "integrity" "sha512-SH8PglcebESbd/shgf6mii6EIoRM0zrQyjcuQ+ojmfxjTtE0z9Y8pa62iA/OJ58qjP6j27uyW4kUF4jl/jd6sw=="
   "resolved" "https://mirrors.tencent.com/npm/redux/-/redux-4.1.2.tgz"
   "version" "4.1.2"

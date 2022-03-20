@@ -1,6 +1,5 @@
 
-import { useEffect, useState, useContext } from "react";
-import { MainContext } from "../store";
+import { connect } from "react-redux";
 
 const computed = (values: any) => {
   let summary = 0;
@@ -12,20 +11,13 @@ const computed = (values: any) => {
   return summary;
 }
 
-const Summary: React.FC = () => {
-  const store = useContext(MainContext)
-  const [summary, setSummary] = useState(computed(store.getState()));
-
-  const eventListener = () => {
-    setSummary(computed(store.getState()))
-  }
-
-  useEffect(() => {
-    const unSubscribe = store.subscribe(eventListener)
-    return () => unSubscribe()
-  }, [])
+const Summary: React.FC<any> = ({ summary }) => {
 
   return <div>{summary}</div>;
 }
+
+const mapState = (state: any) => ({
+  summary: computed(state)
+})
  
-export default Summary;
+export default connect(mapState)(Summary);

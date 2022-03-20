@@ -11,15 +11,5 @@ const initState = {
 
 const store = createStore(reducer, initState)
 
-export const MainContext = createContext(store)
-
-const StoreProvider: React.FC = ({ children }) => {
-  return (
-    <MainContext.Provider value={store}>
-      {children}
-    </MainContext.Provider>
-  )
-}
-
-export default StoreProvider
+export default store
 

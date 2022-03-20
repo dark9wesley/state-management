@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { MainContext } from "../store";
+import React from "react";
+import { connect } from 'react-redux'
 import { decrement, increment } from "../store/actions";
 
-interface CounterProps {
-  name: string;
-}
  
-const Counter: React.FC<CounterProps> = ({ name }) => {
-  const store = useContext(MainContext)
-  const [count, setCount] = useState(store.getState()[name])
+const Counter: React.FC<any> = (props) => {
+
+  const { count, increment, decrement } = props;
 
   const style = {
     width: 100,
@@ -17,18 +14,20 @@ const Counter: React.FC<CounterProps> = ({ name }) => {
     margin: '10px 0'
   }
 
-  const eventListener = () => setCount(store.getState()[name])
-
-  useEffect(() => {
-    const unSubscribe = store.subscribe(eventListener)
-    return () => unSubscribe()
-  }, [])
-
   return <div style={style}>
-    <button onClick={() => store.dispatch(decrement(name))}>-</button>
+    <button onClick={decrement}>-</button>
     <span>{ count }</span>
-    <button onClick={() => store.dispatch(increment(name))}>+</button>
+    <button onClick={increment}>+</button>
   </div>;
 }
  
-export default Counter
+const mapState = (state: any, props: any) => ({
+  count: state[props.name]
+})
+
+const mapDispatch = (dispatch: any, props: any) => ({
+  increment: () => dispatch(increment(props.name)),
+  decrement: () => dispatch(decrement(props.name)),
+})
+
+export default connect(mapState, mapDispatch)(Counter)

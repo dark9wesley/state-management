@@ -1,12 +1,13 @@
-import StoreProvider from "./store"
+import store from "./store"
+import { Provider } from 'react-redux'
 import ControlPanel from "./pages/ControlPanel"
 
 function App() {
 
   return (
-    <StoreProvider>
+    <Provider store={store}>
       <ControlPanel />
-    </StoreProvider>
+    </Provider>
   )
 }
 
