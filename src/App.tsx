@@ -1,13 +1,14 @@
-import store from "./store"
-import { Provider } from 'react-redux'
-import ControlPanel from "./pages/ControlPanel"
+
 
 function App() {
 
   return (
-    <Provider store={store}>
-      <ControlPanel />
-    </Provider>
+    <>
+      <div>
+        <input type="text" name="todoName" />
+        <button type="submit">添加</button>
+      </div>
+    </>
   )
 }
 
