@@ -1,15 +1,23 @@
 import { connect } from "react-redux";
+import { ActionsCreator } from "../actions";
 
 interface TodoFooterProps {
   completedNum: number,
   totalNum: number,
+  completedAll: (flag: boolean) => void,
 }
 
-const TodoFooter: React.FC<TodoFooterProps> = ({ completedNum, totalNum }) => {
+const TodoFooter: React.FC<TodoFooterProps> = ({ completedNum, totalNum, completedAll }) => {
+
+  const handleCheckBoxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const flag = e.target.checked
+    completedAll(flag)
+  }
+
   return (
     <div className="todo-footer">
       <label>
-        <input type="checkbox"/>
+        <input type="checkbox" onChange={handleCheckBoxChange}/>
       </label>
       <span>
         <span>已完成{completedNum}</span> / 全部{totalNum}
@@ -25,5 +33,11 @@ const mapStateToProps = (state) => {
     totalNum: state.todoList.length,
   }
 }
- 
-export default connect(mapStateToProps)(TodoFooter)
+
+const maoDispatchToProps = (dispatch) => {
+  return {
+    completedAll: (flag: boolean) => {dispatch(ActionsCreator.completedAllTodo(flag))},
+  }
+}
+
+export default connect(mapStateToProps, maoDispatchToProps)(TodoFooter)

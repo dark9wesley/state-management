@@ -24,3 +24,8 @@ export const editTodo = (payload: {id: string, text: string}) => ({
   type: ActionTypes.EDITTODO,
   payload
 })
+
+export const completedAllTodo = (flag: boolean) => ({
+  type: ActionTypes.COMPLETEDALLTODO,
+  payload: flag
+})

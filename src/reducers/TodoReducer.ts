@@ -7,26 +7,12 @@ const TodoReducer = (state: any[] = [], actions) => {
     case ActionTypes.REMOVETODO:
       return state.filter(todo => todo.id !== actions.payload)
     case ActionTypes.COMPLETEDTODO:
-      return state.map(todo => {
-        if (todo.id === actions.payload) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          }
-        }
-        return todo
-      })
+      return state.map(todo => ({...todo, completed: todo.id === actions.payload ? !todo.completed : todo.completed}))
     case ActionTypes.EDITTODO:
       const {id, text} = actions.payload
-      return state.map(todo => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            text
-          }
-        }
-        return todo
-      })
+      return state.map(todo => ({...todo, text: todo.id === id ? text : todo.text}))
+    case ActionTypes.COMPLETEDALLTODO:
+      return state.map(todo => ({...todo, completed: actions.payload}))
     default :
       return state
   }
