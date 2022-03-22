@@ -15,10 +15,12 @@ const TodoFooter: React.FC<TodoFooterProps> = ({ completedNum, totalNum, complet
     completedAll(flag)
   }
 
+  const isChecked = (completedNum === totalNum) && totalNum !== 0
+
   return (
     <div className="todo-footer">
       <label>
-        <input type="checkbox" onChange={handleCheckBoxChange}/>
+        <input type="checkbox" checked={isChecked} onChange={handleCheckBoxChange}/>
       </label>
       <span>
         <span>已完成{completedNum}</span> / 全部{totalNum}
