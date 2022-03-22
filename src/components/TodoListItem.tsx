@@ -6,21 +6,30 @@ interface TodoListItemProps {
   todo: Record<string, any>,
   removeTodo: () => void,
   completedTodo: () => void,
+  editTodo: (text: string) => void,
 }
 
-const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo, completedTodo }) => {
+const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo, completedTodo, editTodo }) => {
   const [isEdit, setIsEdit] = useState(false)
 
-  const handleEdit = () => setIsEdit(!isEdit)
+  const handleEdit = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget
+    editTodo(value)
+    setIsEdit(false)
+  }
 
   return (
     <li>
-      <label>
-        <input type="checkbox" checked={todo.completed} onChange={completedTodo}/>
-        {isEdit ? <input type="text" /> : <span>{ todo.text }</span>}
-      </label>
-      {!isEdit && <button className="btn btn-danger" onClick={removeTodo}>删除</button>}
-      {!isEdit && <button className="btn btn-edit" onClick={handleEdit}>编辑</button>}
+      {isEdit ? (<input type="text" defaultValue={todo.text} onBlur={handleEdit} /> ) : (
+        <>
+           <label>
+            <input type="checkbox" checked={todo.completed} onChange={completedTodo}/>
+            <span>{ todo.text }</span>
+          </label>
+          <button className="btn btn-danger" onClick={removeTodo}>删除</button>
+          <button className="btn btn-edit" onClick={() => setIsEdit(!isEdit)}>编辑</button>
+        </>
+      )}
     </li>
   );
 }
@@ -28,7 +37,8 @@ const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo, completed
 const maoDispatchToProps = (dispatch, { todo }) => {
   return {
     removeTodo: () => {dispatch(ActionsCreator.removeTodo(todo.id))},
-    completedTodo: () => {dispatch(ActionsCreator.completedTodo(todo.id))}
+    completedTodo: () => {dispatch(ActionsCreator.completedTodo(todo.id))},
+    editTodo: (text: string) => {dispatch(ActionsCreator.editTodo({ id: todo.id, text }))},
   }
 }
  

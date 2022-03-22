@@ -19,3 +19,8 @@ export const completedTodo = (id: string) => ({
   type: ActionTypes.COMPLETEDTODO,
   payload: id
 })
+
+export const editTodo = (payload: {id: string, text: string}) => ({
+  type: ActionTypes.EDITTODO,
+  payload
+})

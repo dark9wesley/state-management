@@ -16,6 +16,17 @@ const TodoReducer = (state: any[] = [], actions) => {
         }
         return todo
       })
+    case ActionTypes.EDITTODO:
+      const {id, text} = actions.payload
+      return state.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            text
+          }
+        }
+        return todo
+      })
     default :
       return state
   }
