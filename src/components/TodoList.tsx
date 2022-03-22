@@ -1,11 +1,24 @@
+import { connect } from 'react-redux'
 import TodoListItem from "./TodoListItem";
 
-const TodoList: React.FC = () => {
+interface TodoListProps {
+  todoList: Record<string, any>[]
+}
+
+const TodoList: React.FC<TodoListProps> = ({ todoList }) => {
   return (
     <ul className="todo-main">
-      <TodoListItem/>
+      {todoList.map((todo) => {
+        return <TodoListItem key={todo.id} todo={todo}/>
+      })}
     </ul>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    todoList: state.todoList
+  }
+}
  
-export default TodoList;
+export default connect(mapStateToProps)(TodoList)

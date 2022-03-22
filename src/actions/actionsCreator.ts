@@ -9,3 +9,8 @@ export const addTodo = (text: string) => ({
     text,
   }
 })
+
+export const removeTodo = (id: string) => ({
+  type: ActionTypes.REMOVETODO,
+  payload: id
+})

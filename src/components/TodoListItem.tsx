@@ -1,16 +1,34 @@
+import { useState } from "react";
+import { connect } from "react-redux";
+import { ActionsCreator } from "../actions";
 
-const TodoListItem: React.FC = () => {
+interface TodoListItemProps {
+  todo: Record<string, any>,
+  removeTodo: () => void
+}
+
+const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo }) => {
+
+  const [isEdit, setIsEdit] = useState(false)
+
+  const handleEdit = () => setIsEdit(!isEdit)
+
   return (
     <li>
       <label>
         <input type="checkbox"/>
-        {/* <span v-if="!todo.isEdit">{{ todo.value }}</span> */}
-        <input type="text" />
+        {isEdit ? <input type="text" /> : <span>{ todo.text }</span>}
       </label>
-      <button className="btn btn-danger">删除</button>
-      {/* <button className="btn btn-edit">编辑</button> */}
+      {!isEdit && <button className="btn btn-danger" onClick={removeTodo}>删除</button>}
+      {!isEdit && <button className="btn btn-edit" onClick={handleEdit}>编辑</button>}
     </li>
   );
 }
+
+const maoDispatchToProps = (dispatch, { todo }) => {
+  return {
+    removeTodo: () => {dispatch(ActionsCreator.removeTodo(todo.id))}
+  }
+}
  
-export default TodoListItem;
+export default connect(null, maoDispatchToProps)(TodoListItem)
