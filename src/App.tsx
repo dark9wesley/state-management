@@ -1,6 +1,6 @@
-import TodoFooter from "./pages/TodoFooter"
-import TodoHeader from "./pages/TodoHeader"
-import TodoList from "./pages/TodoList"
+import TodoFooter from "./components/TodoFooter"
+import TodoHeader from "./components/TodoHeader"
+import TodoList from "./components/TodoList"
 import "./App.css"
 
 
