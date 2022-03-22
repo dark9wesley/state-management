@@ -14,3 +14,8 @@ export const removeTodo = (id: string) => ({
   type: ActionTypes.REMOVETODO,
   payload: id
 })
+
+export const completedTodo = (id: string) => ({
+  type: ActionTypes.COMPLETEDTODO,
+  payload: id
+})

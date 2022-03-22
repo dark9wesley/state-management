@@ -4,11 +4,11 @@ import { ActionsCreator } from "../actions";
 
 interface TodoListItemProps {
   todo: Record<string, any>,
-  removeTodo: () => void
+  removeTodo: () => void,
+  completedTodo: () => void,
 }
 
-const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo }) => {
-
+const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo, completedTodo }) => {
   const [isEdit, setIsEdit] = useState(false)
 
   const handleEdit = () => setIsEdit(!isEdit)
@@ -16,7 +16,7 @@ const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo }) => {
   return (
     <li>
       <label>
-        <input type="checkbox"/>
+        <input type="checkbox" checked={todo.completed} onChange={completedTodo}/>
         {isEdit ? <input type="text" /> : <span>{ todo.text }</span>}
       </label>
       {!isEdit && <button className="btn btn-danger" onClick={removeTodo}>删除</button>}
@@ -27,7 +27,8 @@ const TodoListItem: React.FC<TodoListItemProps> = ({ todo, removeTodo }) => {
 
 const maoDispatchToProps = (dispatch, { todo }) => {
   return {
-    removeTodo: () => {dispatch(ActionsCreator.removeTodo(todo.id))}
+    removeTodo: () => {dispatch(ActionsCreator.removeTodo(todo.id))},
+    completedTodo: () => {dispatch(ActionsCreator.completedTodo(todo.id))}
   }
 }
  
