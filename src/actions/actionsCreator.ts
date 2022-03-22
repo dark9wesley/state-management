@@ -29,3 +29,7 @@ export const completedAllTodo = (flag: boolean) => ({
   type: ActionTypes.COMPLETEDALLTODO,
   payload: flag
 })
+
+export const clearCompletedTodo = () => ({
+  type: ActionTypes.CLEARCOMPLETEDTODO
+})

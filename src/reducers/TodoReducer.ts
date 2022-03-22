@@ -13,6 +13,9 @@ const TodoReducer = (state: any[] = [], actions) => {
       return state.map(todo => ({...todo, text: todo.id === id ? text : todo.text}))
     case ActionTypes.COMPLETEDALLTODO:
       return state.map(todo => ({...todo, completed: actions.payload}))
+    case ActionTypes.CLEARCOMPLETEDTODO:
+      console.log('1111')
+      return state.filter(todo => !todo.completed)
     default :
       return state
   }

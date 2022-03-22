@@ -5,9 +5,10 @@ interface TodoFooterProps {
   completedNum: number,
   totalNum: number,
   completedAll: (flag: boolean) => void,
+  clearCompletedTodo: () => void,
 }
 
-const TodoFooter: React.FC<TodoFooterProps> = ({ completedNum, totalNum, completedAll }) => {
+const TodoFooter: React.FC<TodoFooterProps> = ({ completedNum, totalNum, completedAll, clearCompletedTodo }) => {
 
   const handleCheckBoxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const flag = e.target.checked
@@ -22,7 +23,7 @@ const TodoFooter: React.FC<TodoFooterProps> = ({ completedNum, totalNum, complet
       <span>
         <span>已完成{completedNum}</span> / 全部{totalNum}
       </span>
-      <button className="btn btn-danger">清除已完成任务</button>
+      <button className="btn btn-danger" onClick={clearCompletedTodo}>清除已完成任务</button>
     </div>
   );
 }
@@ -36,7 +37,8 @@ const mapStateToProps = (state) => {
 
 const maoDispatchToProps = (dispatch) => {
   return {
-    completedAll: (flag: boolean) => {dispatch(ActionsCreator.completedAllTodo(flag))},
+    completedAll: (flag: boolean) => dispatch(ActionsCreator.completedAllTodo(flag)),
+    clearCompletedTodo: () => dispatch(ActionsCreator.clearCompletedTodo()),
   }
 }
 
