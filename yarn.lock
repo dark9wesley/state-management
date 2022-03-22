@@ -320,6 +320,11 @@
   "resolved" "https://mirrors.tencent.com/npm/@types%2fscheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
 
+"@types/uuid@^8.3.4":
+  "integrity" "sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw=="
+  "resolved" "https://mirrors.tencent.com/npm/@types%2fuuid/-/uuid-8.3.4.tgz"
+  "version" "8.3.4"
+
 "@vitejs/plugin-react@^1.0.7":
   "integrity" "sha512-Rywwt0IXXg6yQ0hv3cMT3mtdDcGIw31mGaa+MMMAT651LhoXLF2yFy4LrakiTs7UKs7RPBo9eNgaS8pgl2A6Qw=="
   "resolved" "https://mirrors.cloud.tencent.com/npm/@vitejs%2fplugin-react/-/plugin-react-1.2.0.tgz"
@@ -414,6 +419,11 @@
   "resolved" "https://mirrors.tencent.com/npm/electron-to-chromium/-/electron-to-chromium-1.4.85.tgz"
   "version" "1.4.85"
 
+"esbuild-darwin-arm64@0.14.27":
+  "integrity" "sha512-BEsv2U2U4o672oV8+xpXNxN9bgqRCtddQC6WBh4YhXKDcSZcdNh7+6nS+DM2vu7qWIWNA4JbRG24LUUYXysimQ=="
+  "resolved" "https://mirrors.tencent.com/npm/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.14.27.tgz"
+  "version" "0.14.27"
+
 "esbuild@^0.14.14":
   "integrity" "sha512-MZQt5SywZS3hA9fXnMhR22dv0oPGh6QtjJRIYbgL1AeqAoQZE+Qn5ppGYQAoHv/vq827flj4tIJ79Mrdiwk46Q=="
   "resolved" "https://mirrors.tencent.com/npm/esbuild/-/esbuild-0.14.27.tgz"
@@ -487,6 +497,11 @@
   dependencies:
     "fbemitter" "^3.0.0"
     "fbjs" "^3.0.1"
+
+"fsevents@~2.3.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://mirrors.tencent.com/npm/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -766,6 +781,11 @@
   "integrity" "sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ=="
   "resolved" "https://mirrors.tencent.com/npm/ua-parser-js/-/ua-parser-js-0.7.31.tgz"
   "version" "0.7.31"
+
+"uuid@^8.3.2":
+  "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
+  "resolved" "https://mirrors.tencent.com/npm/uuid/-/uuid-8.3.2.tgz"
+  "version" "8.3.2"
 
 "vite@^2.8.0":
   "integrity" "sha512-e4H0QpludOVKkmOsRyqQ7LTcMUDF3mcgyNU4lmi0B5JUbe0ZxeBBl8VoZ8Y6Rfn9eFKYtdXNPcYK97ZwH+K2ug=="
