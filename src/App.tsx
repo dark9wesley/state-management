@@ -1,9 +1,19 @@
-import ControlPanel from "./pages/ControlPanel"
+import TodoFooter from "./components/TodoFooter"
+import TodoHeader from "./components/TodoHeader"
+import TodoList from "./components/TodoList"
+import "./App.css"
+
 
 function App() {
 
   return (
-    <ControlPanel />
+    <div className="todo-container">
+      <div className="todo-wrap">
+        <TodoHeader />
+        <TodoList />
+        <TodoFooter />
+      </div>
+    </div>
   )
 }
 
