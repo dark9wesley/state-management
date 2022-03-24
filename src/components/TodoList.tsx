@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import TodoListItem from "./TodoListItem";
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import TodoListItem from './TodoListItem'
 
 interface TodoListProps {
   todoList: Record<string, any>[]
@@ -8,9 +9,15 @@ interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ todoList }) => {
   return (
     <ul className="todo-main">
-      {todoList.map((todo) => {
-        return <TodoListItem key={todo.id} todo={todo}/>
-      })}
+      <TransitionGroup>
+        {todoList.map((todo) => {
+          return (
+            <CSSTransition key={todo.id} timeout={500} classNames="item">
+              <TodoListItem todo={todo}/>
+            </CSSTransition>
+          )
+        })}
+      </TransitionGroup>
     </ul>
   );
 }
